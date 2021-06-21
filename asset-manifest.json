@@ -1,22 +1,22 @@
 {
   "files": {
     "main.css": "/Jonathan-Mordecayov-21-06-2021/static/css/main.c770ef46.chunk.css",
-    "main.js": "/Jonathan-Mordecayov-21-06-2021/static/js/main.9fea8779.chunk.js",
-    "main.js.map": "/Jonathan-Mordecayov-21-06-2021/static/js/main.9fea8779.chunk.js.map",
-    "runtime-main.js": "/Jonathan-Mordecayov-21-06-2021/static/js/runtime-main.30446290.js",
-    "runtime-main.js.map": "/Jonathan-Mordecayov-21-06-2021/static/js/runtime-main.30446290.js.map",
-    "static/js/2.12841240.chunk.js": "/Jonathan-Mordecayov-21-06-2021/static/js/2.12841240.chunk.js",
-    "static/js/2.12841240.chunk.js.map": "/Jonathan-Mordecayov-21-06-2021/static/js/2.12841240.chunk.js.map",
-    "static/js/3.40e8ff41.chunk.js": "/Jonathan-Mordecayov-21-06-2021/static/js/3.40e8ff41.chunk.js",
-    "static/js/3.40e8ff41.chunk.js.map": "/Jonathan-Mordecayov-21-06-2021/static/js/3.40e8ff41.chunk.js.map",
+    "main.js": "/Jonathan-Mordecayov-21-06-2021/static/js/main.bd1ead3d.chunk.js",
+    "main.js.map": "/Jonathan-Mordecayov-21-06-2021/static/js/main.bd1ead3d.chunk.js.map",
+    "runtime-main.js": "/Jonathan-Mordecayov-21-06-2021/static/js/runtime-main.37eab73b.js",
+    "runtime-main.js.map": "/Jonathan-Mordecayov-21-06-2021/static/js/runtime-main.37eab73b.js.map",
+    "static/js/2.eaff39d3.chunk.js": "/Jonathan-Mordecayov-21-06-2021/static/js/2.eaff39d3.chunk.js",
+    "static/js/2.eaff39d3.chunk.js.map": "/Jonathan-Mordecayov-21-06-2021/static/js/2.eaff39d3.chunk.js.map",
+    "static/js/3.cace961f.chunk.js": "/Jonathan-Mordecayov-21-06-2021/static/js/3.cace961f.chunk.js",
+    "static/js/3.cace961f.chunk.js.map": "/Jonathan-Mordecayov-21-06-2021/static/js/3.cace961f.chunk.js.map",
     "index.html": "/Jonathan-Mordecayov-21-06-2021/index.html",
     "static/css/main.c770ef46.chunk.css.map": "/Jonathan-Mordecayov-21-06-2021/static/css/main.c770ef46.chunk.css.map",
-    "static/js/2.12841240.chunk.js.LICENSE.txt": "/Jonathan-Mordecayov-21-06-2021/static/js/2.12841240.chunk.js.LICENSE.txt"
+    "static/js/2.eaff39d3.chunk.js.LICENSE.txt": "/Jonathan-Mordecayov-21-06-2021/static/js/2.eaff39d3.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.30446290.js",
-    "static/js/2.12841240.chunk.js",
+    "static/js/runtime-main.37eab73b.js",
+    "static/js/2.eaff39d3.chunk.js",
     "static/css/main.c770ef46.chunk.css",
-    "static/js/main.9fea8779.chunk.js"
+    "static/js/main.bd1ead3d.chunk.js"
   ]
 }
