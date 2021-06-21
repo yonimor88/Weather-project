@@ -1,23 +1,22 @@
 {
   "files": {
-    "main.css": "/Jonathan-Mordecayov-21-06-2021/static/css/main.9d5b29c0.chunk.css",
-    "main.js": "/Jonathan-Mordecayov-21-06-2021/static/js/main.2dd435d5.chunk.js",
-    "main.js.map": "/Jonathan-Mordecayov-21-06-2021/static/js/main.2dd435d5.chunk.js.map",
-    "runtime-main.js": "/Jonathan-Mordecayov-21-06-2021/static/js/runtime-main.e3f160fe.js",
-    "runtime-main.js.map": "/Jonathan-Mordecayov-21-06-2021/static/js/runtime-main.e3f160fe.js.map",
-    "static/js/2.d8e81f83.chunk.js": "/Jonathan-Mordecayov-21-06-2021/static/js/2.d8e81f83.chunk.js",
-    "static/js/2.d8e81f83.chunk.js.map": "/Jonathan-Mordecayov-21-06-2021/static/js/2.d8e81f83.chunk.js.map",
-    "static/js/3.56ada7eb.chunk.js": "/Jonathan-Mordecayov-21-06-2021/static/js/3.56ada7eb.chunk.js",
-    "static/js/3.56ada7eb.chunk.js.map": "/Jonathan-Mordecayov-21-06-2021/static/js/3.56ada7eb.chunk.js.map",
+    "main.css": "/Jonathan-Mordecayov-21-06-2021/static/css/main.c770ef46.chunk.css",
+    "main.js": "/Jonathan-Mordecayov-21-06-2021/static/js/main.237b1fd3.chunk.js",
+    "main.js.map": "/Jonathan-Mordecayov-21-06-2021/static/js/main.237b1fd3.chunk.js.map",
+    "runtime-main.js": "/Jonathan-Mordecayov-21-06-2021/static/js/runtime-main.30446290.js",
+    "runtime-main.js.map": "/Jonathan-Mordecayov-21-06-2021/static/js/runtime-main.30446290.js.map",
+    "static/js/2.07ba6dd5.chunk.js": "/Jonathan-Mordecayov-21-06-2021/static/js/2.07ba6dd5.chunk.js",
+    "static/js/2.07ba6dd5.chunk.js.map": "/Jonathan-Mordecayov-21-06-2021/static/js/2.07ba6dd5.chunk.js.map",
+    "static/js/3.40e8ff41.chunk.js": "/Jonathan-Mordecayov-21-06-2021/static/js/3.40e8ff41.chunk.js",
+    "static/js/3.40e8ff41.chunk.js.map": "/Jonathan-Mordecayov-21-06-2021/static/js/3.40e8ff41.chunk.js.map",
     "index.html": "/Jonathan-Mordecayov-21-06-2021/index.html",
-    "static/css/main.9d5b29c0.chunk.css.map": "/Jonathan-Mordecayov-21-06-2021/static/css/main.9d5b29c0.chunk.css.map",
-    "static/js/2.d8e81f83.chunk.js.LICENSE.txt": "/Jonathan-Mordecayov-21-06-2021/static/js/2.d8e81f83.chunk.js.LICENSE.txt",
-    "static/media/logo.6ce24c58.svg": "/Jonathan-Mordecayov-21-06-2021/static/media/logo.6ce24c58.svg"
+    "static/css/main.c770ef46.chunk.css.map": "/Jonathan-Mordecayov-21-06-2021/static/css/main.c770ef46.chunk.css.map",
+    "static/js/2.07ba6dd5.chunk.js.LICENSE.txt": "/Jonathan-Mordecayov-21-06-2021/static/js/2.07ba6dd5.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.e3f160fe.js",
-    "static/js/2.d8e81f83.chunk.js",
-    "static/css/main.9d5b29c0.chunk.css",
-    "static/js/main.2dd435d5.chunk.js"
+    "static/js/runtime-main.30446290.js",
+    "static/js/2.07ba6dd5.chunk.js",
+    "static/css/main.c770ef46.chunk.css",
+    "static/js/main.237b1fd3.chunk.js"
   ]
 }
