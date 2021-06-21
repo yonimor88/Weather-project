@@ -1,25 +1,62 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+
+import "./App.css";
+import { HashRouter as Router, Switch, Route, Redirect, Link } from "react-router-dom";
+import Main from "./Main";
+import Favorites from "./Favorites";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+	const [favorites, setFavorites] = useState([]);
+	const API_KEY = "xus45HuCuActYKAh9z5nVFz5nolwmJzR";
+
+	function addToFavorites(favorite) {
+		setFavorites([...favorites, favorite]);
+	}
+
+	function removeFavorite(favorite) {
+		setFavorites(favorites.filter((city) => favorite.Key !== city.Key));
+	}
+
+	console.log("favorites", favorites);
+
+	return (
+		<div className="App">
+			<Router>
+				<header className="App-header">
+					<Link to="/Main" replace>
+						<button className="App-main-button">Main Page</button>
+					</Link>
+					<Link to="/Favorites" replace>
+						<button className="App-fav-button">Favorites</button>
+					</Link>
+				</header>
+				<Switch>
+					<Route
+						exact
+						path="/"
+						render={() => {
+							return <Redirect to="/Main" />;
+						}}
+					/>
+					<Route exact path="/Main">
+						<Main
+							API_KEY={API_KEY}
+							favorites={favorites}
+							removeFavorite={removeFavorite}
+							addToFavorites={addToFavorites}
+						/>
+					</Route>
+					<Route exact path="/Favorites">
+						<Favorites
+							API_KEY={API_KEY}
+							removeFavorite={removeFavorite}
+							favorites={favorites}
+						/>
+					</Route>
+				</Switch>
+			</Router>
+		</div>
+	);
 }
 
 export default App;
