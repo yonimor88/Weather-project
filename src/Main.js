@@ -16,14 +16,21 @@ async function getDaily(cityKey, apikey) {
 	return body;
 }
 
+async function getCurent(cityKey, apikey) {
+	const url = `${baseUrl}/currentconditions/v1/${cityKey}?apikey=${apikey}&metric=true`
+	const response = await fetch(url);
+	const body = await response.json();
+	return body;
+}
+
 function Main(props) {
 	const { API_KEY, favorites, addToFavorites, removeFavorite } = props;
 	const [city, setCity] = useState(null);
 	const [daily, setDaily] = useState([]);
 	const [suggestions, setSuggestions] = useState([]);
 	const [dataFetched, setDataFetched] = useState(false);
-	const cityAPI=`https://dataservice.accuweather.com/locations/v1/cities/search?apikey=${API_KEY}&q=tel aviv`
-	
+	const cityAPI=`${baseUrl}/locations/v1/cities/search?apikey=${API_KEY}&q=tel aviv`
+	const [currentWeather, setCurrentWeather] = useState([]);
 
 	async function onSearch(event) {
 		const { value } = event.target;
@@ -52,10 +59,15 @@ function Main(props) {
 			setDaily(result.DailyForecasts);
 		});
 	}
-
+	async function getCurrentAPI(cityKey = "215854") {
+		return await getCurent(cityKey, API_KEY).then((result) => {
+			setCurrentWeather(result);
+		});
+	}
 	useEffect(() => {
 		async function load() {
 			try {
+				await getCurrentAPI();
 				await getCityAPI();
 				await getFiveDayAPI();
 				setDataFetched(true);
@@ -80,9 +92,7 @@ function Main(props) {
 					)}
 					{dataFetched ? (
 						<h2 className="current-degree">
-							{Math.floor(
-								(daily[0]?.Temperature?.Maximum?.Value +
-									daily[0]?.Temperature?.Minimum?.Value) / 2)}C
+							{currentWeather[0]?.Temperature?.Metric?.Value}°C
 						</h2>
 					) : (
 						<p>loading...</p>
@@ -120,9 +130,8 @@ function Main(props) {
 									<p>{new Date(day.Date).toString().split(" ")[0]}</p>
 									<br />
 									<p>
-										{Math.floor(
-											(day?.Temperature?.Maximum?.Value +
-												day?.Temperature?.Minimum?.Value) /2)}C
+										{Math.floor(day?.Temperature?.Maximum?.Value)}°C/{Math.floor(day?.Temperature?.Minimum?.Value)}°C
+												
 									</p>
 								</li>
 							);

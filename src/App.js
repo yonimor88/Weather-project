@@ -7,15 +7,17 @@ import Favorites from "./Favorites";
 
 function App() {
 	const [favorites, setFavorites] = useState([]);
-	const API_KEY = "xus45HuCuActYKAh9z5nVFz5nolwmJzR";
+	const API_KEY = "A6pmRGXawgAtZM5Y11NF2ZemuHR9XdPm";
 
 	function addToFavorites(favorite) {
-		setFavorites([...favorites, favorite]);
+		setFavorites([favorite, ...favorites]);
 	}
 
 	function removeFavorite(favorite) {
 		setFavorites(favorites.filter((city) => favorite.Key !== city.Key));
 	}
+
+	
 
 	console.log("favorites", favorites);
 
@@ -49,7 +51,6 @@ function App() {
 					<Route exact path="/Favorites">
 						<Favorites
 							API_KEY={API_KEY}
-							removeFavorite={removeFavorite}
 							favorites={favorites}
 						/>
 					</Route>

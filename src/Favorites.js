@@ -19,18 +19,21 @@ function Favorites(props) {
 		});
 	}, []);
 
+	
+
 	return (
+		<div>
 		<ul className="Favorite-city">
 			{favorites.map((city, i) => {
 				return (
-					<li>
-                        <Link to="/Main" replace><button className="Favorites-button">
+					<li key={i}>
+                        <Link to="/Main" replace><button className="Favorites-button" >
 						<div>{city.LocalizedName}</div>
-						<div>{currentWeather[i]?.Temperature.Metric.Value}</div></button></Link>
+						<div>{currentWeather[i]?.Temperature.Metric.Value}°C</div></button></Link>
 					</li>
 				);
 			})}
-		</ul>
+		</ul></div>
 	);
 }
 
