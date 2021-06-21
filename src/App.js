@@ -4,24 +4,31 @@ import "./App.css";
 import { HashRouter as Router, Switch, Route, Redirect, Link } from "react-router-dom";
 import Main from "./Main";
 import Favorites from "./Favorites";
+import { RecoilRoot } from 'recoil';
+
+export const API_REAL_KEY = '1OrCeGopCU91ifzqpcKcGxsrBllpdMw0';
 
 function App() {
 	const [favorites, setFavorites] = useState([]);
-	const API_KEY = "A6pmRGXawgAtZM5Y11NF2ZemuHR9XdPm";
+	const [selected, setSelected] = useState([])
+	const API_KEY = "1OrCeGopCU91ifzqpcKcGxsrBllpdMw0";
 
 	function addToFavorites(favorite) {
-		setFavorites([favorite, ...favorites]);
+		setFavorites((current) => [...current, favorite]);
 	}
 
 	function removeFavorite(favorite) {
-		setFavorites(favorites.filter((city) => favorite.Key !== city.Key));
+		setFavorites((current) => current.filter((city) => favorite.Key !== city.Key));
 	}
 
-	
+	function createSelected(selectedItem) {
+		setSelected([selectedItem]);
+	}
 
 	console.log("favorites", favorites);
-
+	console.log('selected', selected);
 	return (
+		<RecoilRoot>
 		<div className="App">
 			<Router>
 				<header className="App-header">
@@ -44,6 +51,7 @@ function App() {
 						<Main
 							API_KEY={API_KEY}
 							favorites={favorites}
+							selected={selected}
 							removeFavorite={removeFavorite}
 							addToFavorites={addToFavorites}
 						/>
@@ -52,11 +60,13 @@ function App() {
 						<Favorites
 							API_KEY={API_KEY}
 							favorites={favorites}
+							CreateSelected={createSelected}
 						/>
 					</Route>
 				</Switch>
 			</Router>
 		</div>
+		</RecoilRoot>
 	);
 }
 

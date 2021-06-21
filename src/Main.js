@@ -1,4 +1,7 @@
 import React, { useEffect, useState } from "react";
+import { useRecoilState, useRecoilValue } from "recoil";
+import { cityKeyAtom, dailyAtom, cityNameAtom, tempAtom } from './DailyAtom';
+import {API_REAL_KEY} from './App';
 
 const baseUrl = "https://dataservice.accuweather.com";
 
@@ -23,10 +26,21 @@ async function getCurent(cityKey, apikey) {
 	return body;
 }
 
+async function getCity(apikey) {
+	const url = `${baseUrl}/locations/v1/cities/search?apikey=${apikey}&q=tel aviv`
+	const response = await fetch(url);
+	const body = await response.json();
+	return body;
+}
+
+
 function Main(props) {
 	const { API_KEY, favorites, addToFavorites, removeFavorite } = props;
 	const [city, setCity] = useState(null);
-	const [daily, setDaily] = useState([]);
+	const [daily, setDaily] = useRecoilState(dailyAtom);
+	const currentCityKey = useRecoilValue(cityKeyAtom);
+	const [cityName, setCityName] = useRecoilState(cityNameAtom);
+	const [temp, setTemp] = useRecoilState(tempAtom);
 	const [suggestions, setSuggestions] = useState([]);
 	const [dataFetched, setDataFetched] = useState(false);
 	const cityAPI=`${baseUrl}/locations/v1/cities/search?apikey=${API_KEY}&q=tel aviv`
@@ -42,57 +56,60 @@ function Main(props) {
 			// on select from datalist
 			const selected = suggestions.find((suggestion) => suggestion.LocalizedName === value);
 			setCity(selected);
-			getFiveDayAPI(selected.Key);
+			setCityName(selected?.LocalizedName);
+			getFiveDayAPI(selected?.Key);
+			getCurrentAPI(selected?.Key);
 		}
 	}
 
-	async function getCityAPI() {
-		return await fetch(cityAPI)
-			.then((res) => res.json())
-			.then((result) => {
-				setCity(result[0]);
-			});
+	async function getCurrentAPI(cityKey = "215854") {
+		return await getCurent(cityKey, API_KEY).then((result) => {
+			
+			setTemp(result[0].Temperature.Metric.Value);
+		});
 	}
 
 	async function getFiveDayAPI(cityKey = "215854") {
-		return await getDaily(cityKey, API_KEY).then((result) => {
+		return await getDaily(cityKey, API_REAL_KEY).then((result) => {
 			setDaily(result.DailyForecasts);
 		});
 	}
-	async function getCurrentAPI(cityKey = "215854") {
-		return await getCurent(cityKey, API_KEY).then((result) => {
-			setCurrentWeather(result);
-		});
+
+	async function getCityAPI() {
+		return await getCity(API_KEY).then((result) => {
+			setCity(result[0]);
+			});
 	}
+
 	useEffect(() => {
 		async function load() {
 			try {
-				await getCurrentAPI();
+				await getCurrentAPI(currentCityKey);
 				await getCityAPI();
-				await getFiveDayAPI();
+				await getFiveDayAPI(currentCityKey, setDaily);
 				setDataFetched(true);
 			} catch (error) {
 			}
 		}
-		load();
-	}, [cityAPI]);
-
+		load();		
+	}, [currentCityKey]);
+	
 	
 	const isFavorite = favorites.find((favorite) => favorite.Key === city?.Key);
-
+	
 	return (
 		<div>
 			<div className="Main-top">
 				<div className="Main-Current">
 					<h1>Current weather:</h1>
 					{dataFetched ? (
-						<h1 className="current-city">{favorites[0]?.LocalizedName}</h1>
+						<h1 className="current-city">{cityName}</h1>
 					) : (
 						<p>loading...</p>
 					)}
 					{dataFetched ? (
 						<h2 className="current-degree">
-							{currentWeather[0]?.Temperature?.Metric?.Value}°C
+							{temp}°C
 						</h2>
 					) : (
 						<p>loading...</p>
