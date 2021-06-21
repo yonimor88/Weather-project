@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 
-const baseUrl = "http://dataservice.accuweather.com";
+const baseUrl = "https://dataservice.accuweather.com";
 
 async function getAutoComplete(q, key) {
 	const url = `${baseUrl}/locations/v1/cities/autocomplete?apikey=${key}&q=${q}`;
@@ -22,7 +22,7 @@ function Main(props) {
 	const [daily, setDaily] = useState([]);
 	const [suggestions, setSuggestions] = useState([]);
 	const [dataFetched, setDataFetched] = useState(false);
-	const cityAPI=`http://dataservice.accuweather.com/locations/v1/cities/search?apikey=${API_KEY}&q=tel aviv`
+	const cityAPI=`https://dataservice.accuweather.com/locations/v1/cities/search?apikey=${API_KEY}&q=tel aviv`
 	
 
 	async function onSearch(event) {

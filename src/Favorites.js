@@ -9,7 +9,7 @@ function Favorites(props) {
 	useEffect(() => {
 		const promises = favorites.map((city) => {
 			return fetch(
-				`http://dataservice.accuweather.com/currentconditions/v1/${city.Key}?apikey=${API_KEY}&metric=true`
+				`https://dataservice.accuweather.com/currentconditions/v1/${city.Key}?apikey=${API_KEY}&metric=true`
 			)
 				.then((res) => res.json())
 				.then((body) => body[0]);
