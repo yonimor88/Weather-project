@@ -6,12 +6,12 @@ import Main from "./Main";
 import Favorites from "./Favorites";
 import { RecoilRoot } from 'recoil';
 
-export const API_REAL_KEY = '1OrCeGopCU91ifzqpcKcGxsrBllpdMw0';
+export const API_REAL_KEY = 'm9nQY13nGtGOtGe6QeJ2Y6AegYcDDxxN';
 
 function App() {
 	const [favorites, setFavorites] = useState([]);
 	const [selected, setSelected] = useState([])
-	const API_KEY = "1OrCeGopCU91ifzqpcKcGxsrBllpdMw0";
+	const API_KEY = "m9nQY13nGtGOtGe6QeJ2Y6AegYcDDxxN";
 
 	function addToFavorites(favorite) {
 		setFavorites((current) => [...current, favorite]);

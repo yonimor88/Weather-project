@@ -121,7 +121,7 @@ function Main(props) {
 					)}
 				</div>
 				<div className="Main-search">
-					<input type="text" list="search" placeholder={"search weather"} onChange={onSearch} />
+					<input  pattern ="[A-Za-z]" type="text" list="search" placeholder={"search weather"} onChange={onSearch} />
 					<datalist id="search">
 						{suggestions.map((suggestion) => (
 							<option value={suggestion.LocalizedName} />
